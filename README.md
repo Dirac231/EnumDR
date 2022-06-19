@@ -10,3 +10,6 @@ To use it effectively, you can paste the functions in your ```~/.bashrc``` or eq
 ```bash
 [function_name] [target] [port]
 ```
+You will also need to install ```seclists```, as some of the functions attempt to guess weak credentials for authentication services.
+
+- ```sudo apt install seclists```
