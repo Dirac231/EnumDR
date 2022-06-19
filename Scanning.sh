@@ -88,7 +88,7 @@ fingerscan(){
     sudo nmap -sCV -p$2 $1
 
     echo -e "\nUSER ENUMERATION: Names.txt\n"
-    /home/dirac/OSCP/TOOLS/finger-user-enum/finger-user-enum.pl -p $2 -U /usr/share/seclists/Usernames/Names/names.txt -t $1
+    finger-user-enum.pl -p $2 -U /usr/share/seclists/Usernames/Names/names.txt -t $1
 }
 
 rpcscan(){
@@ -174,7 +174,6 @@ smbscan(){
 
         echo -e "\nNTLM-INFO + VERSION\n"
         ntlm-info smb $1
-        /home/dirac/OSCP/TOOLS/smbver.sh $1 $2
 
         echo -e "\nANONYMOUS ACCESS\n"
         smbmap -H $1 -P $2
