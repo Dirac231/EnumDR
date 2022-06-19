@@ -234,7 +234,7 @@ gobuster dns -d [domain] -r [IP] -w dns_list.txt
 tftp
 connect [IP]
 
-#Check directory traversal, check upload files
+#Check directory traversal, check file upload
 get ../../../../[file]
 put [file]
 
