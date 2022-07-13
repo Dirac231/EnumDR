@@ -618,7 +618,6 @@ ftp ftp://[USER:PASSWORD@HOST:PORT]
 sys:sys
 scott:tiger
 https://docs.oracle.com/cd/B10501_01/win.920/a95490/username.htm
-users/pass-oracle.txt -> OSCP/WORDLISTS
 ```
 
 ### 3306 - MYSQL *
