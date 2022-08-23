@@ -1,5 +1,5 @@
 ## What is this?
-Enum "Done Right" is a collection of notes and utilities useful for service enumeration, that i've put together during my experience.
+Enum "Done Right" is a collection of notes and functions that i've put together during my experience, useful for service enumeration
 ## How to use
 - ```Enumeration.md``` is a file containing a compendium of techniques to enumerate a variety of services
 - ```Scanning.sh``` is a collection of functions I wrote to automate some of the routine checks on known services.
